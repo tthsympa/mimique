@@ -1,0 +1,91 @@
+{
+  "expo": {
+    "name": "Mimique",
+    "slug": "mimique-mobile",
+    "scheme": "mimique",
+    "icon": "./src/assets/images/square-mimique-logo.png",
+
+    "sdkVersion": "31.0.0",
+    "version": "1.1.8",
+
+    "orientation": "portrait",
+
+    "facebookScheme": "<SCHEME>",
+    "facebookAppId": "<ID>",
+    "facebookDisplayName": "Mimique",
+
+    "splash": {
+      "image": "./src/assets/images/splash.png",
+      "backgroundColor": "#FFFFFF",
+      "resizeMode": "contain"
+    },
+
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "mimique",
+            "project": "mobileapp",
+            "authToken": "<TOKEN>"
+          }
+        }
+      ]
+    },
+
+    "ios": {
+      "bundleIdentifier": "io.mimique.mobile",
+      "appStoreUrl": "<APPSTOREURL>",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "<ID>"
+        },
+        "branch": {
+          "apiKey": "<KEY>"
+        }
+      },
+      "associatedDomains": [
+        "applinks:api-dev.mimique.io",
+        "applinks:link.mimique.io",
+        "applinks:vyra.app.link",
+        "applinks:vyra-alternate.app.link"
+      ],
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Mimique utilise votre localisation pour vous proposer des évènements proches de chez vous."
+      }
+    },
+
+    "android": {
+      "versionCode": 2,
+      "package": "io.mimique.mobile",
+      "config": {
+        "googleSignIn": {
+          "apiKey": "<KEY>",
+          "certificateHash": "7676AE01F8FD59B75ABD0B4DFBC51344EE20DD21"
+        },
+        "branch": {
+          "apiKey": "<KEY>"
+        }
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "<HOST>",
+              "pathPrefix": "/share-event/"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    }
+
+  }
+}
+

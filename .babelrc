@@ -1,0 +1,34 @@
+{
+  "presets": ["@babel/flow", "babel-preset-expo"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "extensions": [".js", ".ios.js", ".android.js"],
+        "alias": {
+          "actions": "./src/actions",
+          "assets": "./src/assets",
+          "components": "./src/components",
+          "config": "./src/config",
+          "containers": "./src/containers",
+          "reducers": "./src/reducers",
+          "reduxTypes": "./src/reduxTypes",
+          "sagas": "./src/sagas",
+          "services": "./src/services",
+          "styles": "./src/styles",
+          "utils": "./src/utils"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@babel/transform-react-jsx-source"]
+    },
+    "test": {
+      "plugins": ["@babel/transform-react-jsx-source"],
+      "presets": ["@babel/env", "@babel/stage-0"]
+    }
+  }
+}
